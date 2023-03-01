@@ -4,6 +4,8 @@ from mpl_toolkits.mplot3d import Axes3D
 import trajectory_planning_helpers
 
 
+DPI = 2000
+
 def result_plots(plot_opts: dict,
                  width_veh_opt: float,
                  width_veh_real: float,
@@ -69,6 +71,7 @@ def result_plots(plot_opts: dict,
         ax.set_aspect("equal", "datalim")
         plt.xlabel("east in m")
         plt.ylabel("north in m")
+        plt.savefig("trajectory.jpg", dpi = DPI)
         plt.show()
 
     if plot_opts["raceline_curv"]:
@@ -78,6 +81,7 @@ def result_plots(plot_opts: dict,
         plt.grid()
         plt.xlabel("distance in m")
         plt.ylabel("curvature in rad/m")
+        plt.savefig("curvature.jpg", dpi = DPI)
         plt.show()
 
     if plot_opts["racetraj_vel_3d"]:
